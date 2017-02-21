@@ -8,6 +8,7 @@ CG_TOOL_ROOT := F:/ti/ccsv5/tools/compiler/msp430_4.1.5
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
+"./rubbish.obj" \
 "./main.obj" \
 -l"libc.a" \
 "../lnk_msp430g2553.cmd" \
@@ -109,21 +110,21 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: soyea_project.out
+all: SOYEA_PJT.out
 
 # Tool invocations
-soyea_project.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+SOYEA_PJT.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"F:/ti/ccsv5/tools/compiler/msp430_4.1.5/bin/cl430" -vmsp --abi=eabi -g --advice:power=all --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z --stack_size=80 -m"soyea_project.map" --heap_size=80 -i"F:/ti/ccsv5/ccs_base/msp430/include" -i"F:/ti/ccsv5/tools/compiler/msp430_4.1.5/lib" -i"F:/ti/ccsv5/tools/compiler/msp430_4.1.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --rom_model -o "soyea_project.out" $(ORDERED_OBJS)
+	"F:/ti/ccsv5/tools/compiler/msp430_4.1.5/bin/cl430" -vmsp --abi=eabi -g --advice:power=all --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z --stack_size=80 -m"SOYEA_PJT.map" --heap_size=80 -i"F:/ti/ccsv5/ccs_base/msp430/include" -i"F:/ti/ccsv5/tools/compiler/msp430_4.1.5/lib" -i"F:/ti/ccsv5/tools/compiler/msp430_4.1.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --rom_model -o "SOYEA_PJT.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(MSP430_EXECUTABLE_OUTPUTS__QUOTED) "soyea_project.out"
-	-$(RM) "main.pp" 
-	-$(RM) "main.obj" 
+	-$(RM) $(MSP430_EXECUTABLE_OUTPUTS__QUOTED) "SOYEA_PJT.out"
+	-$(RM) "main.pp" "rubbish.pp" 
+	-$(RM) "main.obj" "rubbish.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
